@@ -1,0 +1,21 @@
+{
+    "Table": {
+        "TableName": "vehicle-microservice-dev-vehicle",
+        "KeySchema": [
+            {
+                "AttributeName": "vin",
+                "KeyType": "HASH"
+            }
+        ],
+        "AttributeDefinitions": [
+            {
+                "AttributeName": "vin",
+                "AttributeType": "S"
+            }
+        ],
+        "ProvisionedThroughput": {
+            "ReadCapacityUnits": 1,
+            "WriteCapacityUnits": 1
+        }
+    }
+}

@@ -1,1 +1,0 @@
-# saperium-tdd-bootcamp

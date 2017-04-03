@@ -1,7 +1,7 @@
 {
-  "name": "vehicle-microservice",
+  "name": "saperium-tdd-bootcamp",
   "version": "1.0.0",
-  "description": "Vehicle Microservice",
+  "description": "saperium-tdd-bootcamp",
   "repository": "",
   "author": "Ryan Goce <ryan@saperium.com>",
   "license": "MIT",
@@ -13,7 +13,7 @@
   "devDependencies": {
     "mocha": "^3.2.0",
     "serverless-dynamodb-local": "=0.2.20",
-    "serverless-offline": "=3.8.3",
+    "serverless-offline": "^3.13.1",
     "should": "^11.2.0",
     "sinon": "^1.17.7"
   }

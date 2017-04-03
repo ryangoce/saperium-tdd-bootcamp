@@ -68,21 +68,15 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  hello:
-    handler: handler.hello
-    events:
-      - http:
-          path: /
-          method: get
   list:
-    handler: functions/vehicles/list.list
+    handler: lambda/vehicle.list
     events:
       - http:
           path: /vehicle
           method: get
           cors: true
   create:
-    handler: functions/vehicles/create.create
+    handler: lambda/vehicle.create
     events:
       - http:
           path: /vehicle
@@ -95,7 +89,8 @@ plugins:
 
 custom:
   serverless-offline:
-    port: 4000
+    port: 3000
+    host: 0.0.0.0
   dynamodb:
     start:
       port: 8000

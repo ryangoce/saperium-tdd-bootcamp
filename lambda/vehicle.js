@@ -12,6 +12,46 @@ const client = new AWS.DynamoDB.DocumentClient();
 module.exports.create = (event, context, callback) => {
     const vehicle = JSON.parse(event.body);
 
+    if (vehicle.year) {
+        callback(null, {
+            statusCode: 400,
+            body: {
+                error: "year is required"
+            }
+        });
+        return;
+    }
+
+    if (vehicle.make) {
+        callback(null, {
+            statusCode: 400,
+            body: {
+                error: "make is required"
+            }
+        });
+        return;
+    }
+
+    if (vehicle.model) {
+        callback(null, {
+            statusCode: 400,
+            body: {
+                error: "model is required"
+            }
+        });
+        return;
+    }
+
+    if (vehicle.vin) {
+        callback(null, {
+            statusCode: 400,
+            body: {
+                error: "vin is required"
+            }
+        });
+        return;
+    }
+
     const params = {
         TableName: process.env.VEHICLE_TABLE,
         Item: vehicle,
@@ -34,7 +74,9 @@ module.exports.create = (event, context, callback) => {
         if (result.Attributes) {
             callback(null, {
                 statusCode: 409,
-                body: result.Attributes
+                body: {
+                    data: result.Attributes
+                }
             });
         }
 
@@ -65,7 +107,9 @@ module.exports.list = (event, context, callback) => {
 
         const response = {
             statusCode: 200,
-            body: result.Items
+            body: {
+                data: result.Items
+            }
         };
 
         callback(null, response);

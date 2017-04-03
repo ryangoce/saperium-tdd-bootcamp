@@ -22,3 +22,4 @@ RUN apt-get update && \
 EXPOSE 8000 3000 5858
 
 ENTRYPOINT ["sls", "offline", "start", "--seed=vehicle"]
+#CMD ["bash"]

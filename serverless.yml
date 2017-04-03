@@ -23,6 +23,7 @@ provider:
   region: us-west-2
   environment:
     VEHICLE_TABLE: ${self:service}-${opt:stage, self:provider.stage}-vehicle
+    DYNAMO_HOST: 
   iamRoleStatements:
     - Effect: Allow
       Action:

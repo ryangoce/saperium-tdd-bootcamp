@@ -2,20 +2,24 @@
     "vin": "1FTRW12879FA58664",
     "year": 2012,
     "make": "Honda",
-    "model": "Jazz"
+    "model": "Jazz",
+    "dealership": "macautoinc"
 }, {
     "vin": "1HGCM56476A062556",
     "year": 2007,
     "make": "Toyota",
-    "model": "Yaris"
+    "model": "Yaris",
+    "dealership": "macautoinc"
 }, {
     "vin": "JA4JT3AW3CU004292",
     "year": 2010,
     "make": "Honda",
-    "model": "Civic"
+    "model": "Civic",
+    "dealership": "macautoinc"
 }, {
     "vin": "1FTRW08LX2KD62414",
     "year": 2016,
     "make": "Volkswalgen",
-    "model": "Touareg"
+    "model": "Touareg",
+    "dealership": "macautoinc"
 }]

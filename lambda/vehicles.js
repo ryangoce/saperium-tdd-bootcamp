@@ -12,7 +12,7 @@ const client = new AWS.DynamoDB.DocumentClient();
 module.exports.create = (event, context, callback) => {
     const vehicle = JSON.parse(event.body);
 
-    if (vehicle.year) {
+    if (!vehicle.year) {
         callback(null, {
             statusCode: 400,
             body: {
@@ -22,7 +22,7 @@ module.exports.create = (event, context, callback) => {
         return;
     }
 
-    if (vehicle.make) {
+    if (!vehicle.make) {
         callback(null, {
             statusCode: 400,
             body: {
@@ -32,7 +32,7 @@ module.exports.create = (event, context, callback) => {
         return;
     }
 
-    if (vehicle.model) {
+    if (!vehicle.model) {
         callback(null, {
             statusCode: 400,
             body: {
@@ -42,7 +42,7 @@ module.exports.create = (event, context, callback) => {
         return;
     }
 
-    if (vehicle.vin) {
+    if (!vehicle.vin) {
         callback(null, {
             statusCode: 400,
             body: {

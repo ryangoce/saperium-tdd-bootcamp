@@ -70,17 +70,17 @@ provider:
 
 functions:
   list:
-    handler: lambda/vehicle.list
+    handler: lambda/vehicles.list
     events:
       - http:
-          path: /vehicle
+          path: /vehicles
           method: get
           cors: true
   create:
-    handler: lambda/vehicle.create
+    handler: lambda/vehicles.create
     events:
       - http:
-          path: /vehicle
+          path: /vehicles
           method: post
           cors: true
 

@@ -22,35 +22,7 @@ module.exports.create = (event, context, callback) => {
         return;
     }
 
-    if (!vehicle.make) {
-        callback(null, {
-            statusCode: 400,
-            body: {
-                error: "make is required"
-            }
-        });
-        return;
-    }
-
-    if (!vehicle.model) {
-        callback(null, {
-            statusCode: 400,
-            body: {
-                error: "model is required"
-            }
-        });
-        return;
-    }
-
-    if (!vehicle.vin) {
-        callback(null, {
-            statusCode: 400,
-            body: {
-                error: "vin is required"
-            }
-        });
-        return;
-    }
+    // TODO: Add more validations
 
     const params = {
         TableName: process.env.VEHICLE_TABLE,

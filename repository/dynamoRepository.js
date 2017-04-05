@@ -42,6 +42,27 @@ var dynamoRepository = {
 
             callback(null, result.Attributes);
         });
+    },
+    get: function(tableName, keyName, keyValue, callback) {
+        let params = {
+            TableName: tableName,
+            Key: {
+
+            },
+            ReturnValues: 'ALL_OLD'
+        };
+
+        params.Key[keyName] = keyValue;
+        client.get(params, (error, result) => {
+            // handle potential errors
+            if (error) {
+                console.error(error);
+                callback(error);
+                return;
+            }
+
+            callback(null, result.Item);
+        });
     }
 }
 

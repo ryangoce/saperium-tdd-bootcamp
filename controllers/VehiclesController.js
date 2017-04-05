@@ -42,7 +42,7 @@ var VehiclesController = function(repository) {
         });
     };
 
-    this.listVehicles = function(event, context, callback) {
+    this.listVehicles = function(callback) {
         this.repository.scan(process.env.VEHICLE_TABLE, (error, data) => {
             // handle potential errors
             if (error) {
@@ -66,6 +66,40 @@ var VehiclesController = function(repository) {
             callback(null, response);
         });
     };
+
+    this.getVehicle = function(vin, callback) {
+        this.repository.get(process.env.VEHICLE_TABLE, "vin", vin, (error, data) => {
+            // handle potential errors
+            if (error) {
+                console.error(error);
+                callback(null, {
+                    statusCode: 500,
+                    body: {
+                        error: "Cannot get vehicles"
+                    }
+                });
+                return;
+            }
+
+            if (!data) {
+                callback(null, {
+                    statusCode: 404,
+                    body: {
+                        errors: [{
+                            message: "VIN not found",
+                            code: 20
+                        }]
+                    }
+                });
+            }
+
+            callback(null, {
+                statusCode: 200,
+                body: data
+            });
+        });
+    };
+
 }
 
 module.exports = VehiclesController;

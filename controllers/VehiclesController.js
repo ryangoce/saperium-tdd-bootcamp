@@ -34,6 +34,8 @@ var VehiclesController = function(repository) {
                         data: data
                     }
                 });
+
+                return;
             }
 
             callback(null, {
@@ -94,6 +96,8 @@ var VehiclesController = function(repository) {
                         }]
                     }
                 });
+
+                return;
             }
 
             callback(null, {

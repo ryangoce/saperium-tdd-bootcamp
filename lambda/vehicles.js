@@ -10,5 +10,5 @@ module.exports.create = (event, context, callback) => {
 };
 
 module.exports.list = (event, context, callback) => {
-    vController.listVehicle(event, context, callback);
+    vController.listVehicles(event, context, callback);
 };

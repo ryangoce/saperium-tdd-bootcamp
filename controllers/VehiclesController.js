@@ -14,15 +14,7 @@ var VehiclesController = function(repository) {
             return;
         }
 
-        // TODO: Add more validations
-
-        const params = {
-            TableName: process.env.VEHICLE_TABLE,
-            Item: vehicle,
-            ReturnValues: 'ALL_OLD'
-        };
-
-        this.repository.put(params, (error, result) => {
+        this.repository.put(process.env.VEHICLE_TABLE, vehicle, (error, data) => {
             // handle potential errors
             if (error) {
                 console.error(error);
@@ -35,11 +27,11 @@ var VehiclesController = function(repository) {
                 return;
             }
 
-            if (result.Attributes) {
+            if (data) {
                 callback(null, {
                     statusCode: 409,
                     body: {
-                        data: result.Attributes
+                        data: data
                     }
                 });
             }
@@ -50,7 +42,7 @@ var VehiclesController = function(repository) {
         });
     };
 
-    this.listVehicle = function(event, context, callback) {
+    this.listVehicles = function(event, context, callback) {
         this.repository.scan(process.env.VEHICLE_TABLE, (error, data) => {
             // handle potential errors
             if (error) {

@@ -17,7 +17,8 @@ RUN apt-get update && \
         pip install awscli --upgrade --user && \
         npm install serverless -g && \
         npm install node-inspector -g && \
-        npm install
+        npm install && \
+        serverless dynamodb install
         
 EXPOSE 8000 3000 5858
 

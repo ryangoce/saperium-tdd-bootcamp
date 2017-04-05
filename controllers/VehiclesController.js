@@ -1,8 +1,8 @@
 var VehiclesController = function(repository) {
     this.repository = repository;
 
-    this.createVehicle = function(event, context, callback) {
-        const vehicle = JSON.parse(event.body);
+    this.createVehicle = function(item, callback) {
+        const vehicle = JSON.parse(item);
 
         if (!vehicle.year) {
             callback(null, {

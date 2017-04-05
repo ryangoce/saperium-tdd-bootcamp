@@ -50,9 +50,30 @@ var VehiclesController = function(repository) {
         });
     };
 
-    this.listVehicle = function() {
+    this.listVehicle = function(event, context, callback) {
+        this.repository.scan(process.env.VEHICLE_TABLE, (error, data) => {
+            // handle potential errors
+            if (error) {
+                console.error(error);
+                callback(null, {
+                    statusCode: 500,
+                    body: {
+                        error: "Cannot get vehicles"
+                    }
+                });
+                return;
+            }
 
+            const response = {
+                statusCode: 200,
+                body: {
+                    data: data
+                }
+            };
+
+            callback(null, response);
+        });
     };
 }
 
-module.export = VehiclesController;
+module.exports = VehiclesController;

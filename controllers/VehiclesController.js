@@ -75,7 +75,10 @@ var VehiclesController = function(repository) {
                 callback(null, {
                     statusCode: 500,
                     body: {
-                        error: "Cannot get vehicles"
+                        errors: [{
+                            message: "An internal server error has occurred",
+                            code: 22
+                        }]
                     }
                 });
                 return;
